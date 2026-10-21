@@ -4,11 +4,34 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#080b09"><meta name="description" content="Build yourself. Be yourself. Routines, personal style and progress tracking."><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg" type="image/svg+xml"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><title>PRIMESELF</title>
 <style>
-:root{color-scheme:dark;--bg:#080b09;--panel:#111713;--green:#b7ff35;--muted:#a3ada5;--line:#2a382c}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f5f7f4;font:16px system-ui,sans-serif;padding-bottom:85px}
-header{padding:20px 18px 14px;border-bottom:1px solid var(--line)}.brand{font-size:25px;font-weight:900;letter-spacing:2px}.brand span{color:var(--green)}small,.muted{color:var(--muted)}
-main{max-width:700px;margin:auto;padding:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:16px;margin:12px 0}.hero{background:linear-gradient(145deg,#172214,#101512);border-color:#4b7024}.eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:var(--green)}h1{font-size:30px;line-height:1.15;margin:10px 0}h2{font-size:19px;margin:0 0 12px}p{line-height:1.5}.btn{background:var(--green);color:#11170a;border:0;border-radius:11px;padding:12px 15px;font-size:15px;font-weight:800}.secondary{background:#1c271c;color:#f5f7f4;border:1px solid #3a5038}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{font-size:24px;color:var(--green);font-weight:850}.tabs{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(5,1fr);background:#0d120f;border-top:1px solid var(--line);padding:7px 2px calc(7px + env(safe-area-inset-bottom))}.tabs button{background:none;border:0;color:var(--muted);font-size:11px;padding:5px 0}.tabs button span{display:block;font-size:20px}.tabs button.active{color:var(--green)}label{display:block;margin:12px 0}input,select{display:block;width:100%;margin-top:7px;padding:11px;background:#0b100c;color:white;border:1px solid var(--line);border-radius:9px}img{max-width:100%;max-height:280px;object-fit:contain}.pill{color:var(--green);border:1px solid #4c6b34;border-radius:99px;padding:5px 9px;font-size:12px}
-button,a,input,select{touch-action:manipulation}button{cursor:pointer;transition:transform .15s ease,filter .15s ease}button:active{transform:scale(.98)}.panel{box-shadow:0 8px 24px #0003}.hero{position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:130px;height:130px;right:-45px;top:-45px;border:1px solid #b7ff3533;border-radius:50%;box-shadow:0 0 0 18px #b7ff3510,0 0 0 36px #b7ff3508;pointer-events:none}.eyebrow{line-height:1.5}.tabs button{min-height:48px}input[type=checkbox]{display:inline-block;width:20px;height:20px;vertical-align:middle;margin:0 10px 0 0;accent-color:var(--green)}label:has(input[type=checkbox]){display:flex;align-items:center;gap:8px;line-height:1.4}img{border-radius:12px}::selection{background:#b7ff35;color:#080b09}@media(min-width:600px){main{padding:24px}.panel{padding:20px}h1{font-size:36px}}\n</style>
+:root{color-scheme:dark;--bg:#080b09;--panel:#101511;--panel2:#151c16;--green:#b7ff35;--muted:#9ba69d;--line:#273329;--soft:#1b241c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#f3f6f2;font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:88px;-webkit-font-smoothing:antialiased}
+header{padding:17px 18px 13px;border-bottom:1px solid var(--line);background:#080b09ed;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}
+.brand{font-size:23px;font-weight:850;letter-spacing:1.8px}.brand span{color:var(--green)}
+small,.muted{color:var(--muted)}
+main{max-width:680px;margin:auto;padding:15px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;margin:11px 0}
+.hero{background:linear-gradient(135deg,#172219 0%,#101511 75%);border-color:#354b2e}
+.eyebrow{font-size:10px;font-weight:800;letter-spacing:1.7px;color:var(--green);text-transform:uppercase}
+h1{font-size:29px;letter-spacing:-.8px;line-height:1.13;margin:8px 0 10px}h2{font-size:17px;letter-spacing:-.2px;margin:0 0 10px}p{line-height:1.55;margin:8px 0 12px}
+.btn{background:var(--green);color:#10150b;border:0;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:750;min-height:42px}
+.secondary{background:var(--soft);color:#f3f6f2;border:1px solid #344236}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid .panel{margin:0}
+.metric{font-size:23px;color:var(--green);font-weight:800;letter-spacing:-.5px;margin:3px 0}
+.tabs{position:fixed;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:#0c110ded;border-top:1px solid var(--line);padding:6px 2px calc(6px + env(safe-area-inset-bottom));z-index:10;backdrop-filter:blur(16px)}
+.tabs button{background:none;border:0;color:var(--muted);font-size:10px;font-weight:650;padding:5px 0;min-height:49px}
+.tabs button span{display:block;font-size:19px;line-height:1.4;margin-bottom:1px}.tabs button.active{color:var(--green)}
+label{display:block;margin:12px 0}input,select{display:block;width:100%;margin-top:7px;padding:11px;background:#0b100c;color:white;border:1px solid var(--line);border-radius:9px;font:inherit}
+img{max-width:100%;max-height:280px;object-fit:contain;border-radius:12px}.pill{display:inline-block;color:var(--green);border:1px solid #456137;border-radius:99px;padding:4px 9px;font-size:11px;font-weight:700}
+button,a,input,select{touch-action:manipulation}button{cursor:pointer;transition:filter .15s ease,transform .15s ease}button:active{transform:scale(.985)}button:hover{filter:brightness(1.06)}
+input[type=checkbox]{display:inline-block;width:19px;height:19px;vertical-align:middle;margin:0 10px 0 0;accent-color:var(--green);flex:0 0 auto}
+label:has(input[type=checkbox]){display:flex;align-items:center;gap:8px;line-height:1.4;padding:5px 0}
+::selection{background:var(--green);color:#080b09}
+@media(min-width:600px){main{padding:22px}header{padding-left:max(22px,calc((100% - 636px)/2));padding-right:max(22px,calc((100% - 636px)/2))}.panel{padding:18px}h1{font-size:34px}}
+
+</style>
 </head><body>
 <header><div class="brand">PRIME<span>SELF</span></div><small>Build yourself. Be yourself.</small></header>
 <main id="app"><section class="panel"><h1>PRIMESELF</h1><p>Loading your personal upgrade...</p></section></main>
