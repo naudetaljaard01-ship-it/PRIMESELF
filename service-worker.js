@@ -1,4 +1,4 @@
-const CACHE_NAME = 'primeself-v12';
+const CACHE_NAME = 'primeself-v13';
 const APP_FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES)));
