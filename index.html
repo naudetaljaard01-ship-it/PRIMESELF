@@ -376,31 +376,4 @@ function removePhoto(){const input=document.getElementById('photoInput');if(inpu
 })();
 </script>
 
-<script>
-/* Emergency navigation safety net: works even if an earlier feature script fails. */
-(function(){
-  function go(page){
-    var pages=document.querySelectorAll('.page');
-    var tabs=document.querySelectorAll('.tab');
-    var target=document.getElementById(page);
-    if(!target)return false;
-    pages.forEach(function(el){el.classList.toggle('active',el.id===page);});
-    tabs.forEach(function(el){el.classList.toggle('active',el.getAttribute('data-page')===page);});
-    window.scrollTo(0,0);
-    return true;
-  }
-  window.showPage=go;
-  document.addEventListener('click',function(ev){
-    var tab=ev.target.closest && ev.target.closest('.tab[data-page]');
-    if(tab){ev.preventDefault();go(tab.getAttribute('data-page'));return;}
-    var button=ev.target.closest && ev.target.closest('button[onclick]');
-    if(button && button.getAttribute('onclick') && button.getAttribute('onclick').indexOf('showPage(')===0){
-      ev.preventDefault();
-      var m=button.getAttribute('onclick').match(/showPage\(['"]([^'"]+)['"]\)/);
-      if(m)go(m[1]);
-    }
-  },true);
-})();
-</script>
-
 </body></html>
