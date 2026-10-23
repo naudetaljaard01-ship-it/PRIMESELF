@@ -376,4 +376,30 @@ function removePhoto(){const input=document.getElementById('photoInput');if(inpu
 })();
 </script>
 
+<script>
+/* PRIMESELF interaction fallback: independent of feature initialization. */
+(function(){
+  function activate(page){
+    var target=document.getElementById(page);
+    if(!target)return;
+    document.querySelectorAll('.page').forEach(function(el){el.classList.toggle('active',el.id===page);});
+    document.querySelectorAll('.tab').forEach(function(el){el.classList.toggle('active',el.getAttribute('data-page')===page);});
+    window.scrollTo(0,0);
+  }
+  window.showPage=activate;
+  document.addEventListener('click',function(event){
+    var tab=event.target.closest ? event.target.closest('.tab[data-page]') : null;
+    if(tab){event.preventDefault();activate(tab.getAttribute('data-page'));return;}
+    var btn=event.target.closest ? event.target.closest('button[onclick]') : null;
+    if(!btn)return;
+    var code=btn.getAttribute('onclick')||'';
+    var m=code.match(/^\s*showPage\(['"]([^'"]+)['"]\)/);
+    if(m){event.preventDefault();activate(m[1]);}
+  },true);
+  document.addEventListener('DOMContentLoaded',function(){
+    if(!document.querySelector('.page.active'))activate('home');
+  });
+})();
+</script>
+
 </body></html>
